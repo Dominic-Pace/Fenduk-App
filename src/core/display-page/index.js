@@ -7,7 +7,7 @@ import * as actions from './actions';
 
 class DisplayPage extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     return this.props.fetchListOfBooks();
   }
 

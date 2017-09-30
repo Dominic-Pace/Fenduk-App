@@ -1,3 +1,6 @@
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
+export const POST_REQUEST = 'POST_REQUEST';
+export const POST_SUCCESS = 'POST_SUCCESS';
+export const POST_FAILURE = 'POST_FAILURE';
