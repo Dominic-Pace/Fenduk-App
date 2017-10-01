@@ -8,6 +8,10 @@ import {
   DELETE_FAILURE, DELETE_REQUEST, DELETE_SUCCESS
 } from './types';
 
+/**
+ * Method used to fetch all books in the database via rest call.
+ * @returns {function(*)}
+ */
 export const fetchListOfBooks = () => {
   return dispatch => {
     dispatch({type: FETCH_REQUEST})
@@ -24,6 +28,11 @@ export const fetchListOfBooks = () => {
   }
 }
 
+/**
+ * Method used to create a new book via a REST call.
+ * @param newBook - book object
+ * @returns {function(*)}
+ */
 export const createNewBook = (newBook) => {
   const newBookConfig = {
     url: 'http://localhost:3000/imports',
@@ -33,8 +42,8 @@ export const createNewBook = (newBook) => {
       description: newBook.description,
       author: newBook.author,
       tags: newBook.tags,
-      created_at: moment(newBook.created_at).unix(),
-      updated_at: moment(newBook.updated_at).unix()
+      created_at: moment().unix(),
+      updated_at: null
     }
   }
   return dispatch => {
@@ -53,6 +62,12 @@ export const createNewBook = (newBook) => {
   }
 }
 
+/**
+ * Method used to Update a single book.
+ * @param updatedBook - book object
+ * @param id - id of book
+ * @returns {function(*)}
+ */
 export const updateBook = (updatedBook, id) => {
   const bookConfig = {
     url: 'http://localhost:3000/imports/' + id,
@@ -63,7 +78,7 @@ export const updateBook = (updatedBook, id) => {
       author: updatedBook.author,
       tags: updatedBook.tags,
       created_at: moment(updatedBook.created_at).unix(),
-      updated_at: moment(updatedBook.updated_at).unix()
+      updated_at: moment().unix()
     }
   }
   return dispatch => {
@@ -82,6 +97,11 @@ export const updateBook = (updatedBook, id) => {
   }
 }
 
+/**
+ * Method used to remove a single book from the database.
+ * @param id - id of the book.
+ * @returns {function(*)}
+ */
 export const removeBook = (id) => {
   return dispatch => {
     dispatch({type: DELETE_REQUEST})

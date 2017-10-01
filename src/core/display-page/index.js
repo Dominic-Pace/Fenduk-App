@@ -10,6 +10,10 @@ class DisplayPage extends Component {
     this.props.fetchListOfBooks();
   }
 
+  /**
+   * Method used to save a book to the database after inserting a row into the table
+   * @param row - row added from modal.
+   */
   onAfterInsertRow = (row) => {
     let newBook = {};
 
@@ -19,10 +23,18 @@ class DisplayPage extends Component {
     this.props.createNewBook(newBook);
   }
 
+  /**
+   * Method used to remove a book from the database after clicking the Delete Button
+   * @param row - row to remove.
+   */
   onAfterDeleteRow = (row) => {
     this.props.removeBook(row);
   }
 
+  /**
+   * Method used to update a book in the database after modifying a field in the UI.
+   * @param row - row/book to update.
+   */
   onAfterSaveCell = (row) => {
     let updatedBook = {};
 
@@ -33,6 +45,10 @@ class DisplayPage extends Component {
     this.props.updateBook(updatedBook, updatedBook['_id']);
   }
 
+  /**
+   * Table options.
+   * @type {{afterInsertRow: ((p1:*)), afterDeleteRow: ((p1?:*))}}
+   */
   options = {
     afterInsertRow: this.onAfterInsertRow,
     afterDeleteRow: this.onAfterDeleteRow,

@@ -7,7 +7,8 @@ import {
 
 const INITIAL_STATE = {
   errorMessage: '',
-  isRequesting: false
+  isRequesting: false,
+  bookList: []
 };
 
 export default (state=INITIAL_STATE, action) => {

@@ -9,8 +9,6 @@ const selectRowProp = {
   mode: 'checkbox'
 };
 
-
-
 const FendukTable = ({ cellEditProp, data, options }) => (
   <div>
     <BootstrapTable className="fenduk-table"
@@ -28,8 +26,8 @@ const FendukTable = ({ cellEditProp, data, options }) => (
       <TableHeaderColumn dataField="description" editable={{ type: 'textarea' }}>Description</TableHeaderColumn>
       <TableHeaderColumn dataField="author" dataSort>Author</TableHeaderColumn>
       <TableHeaderColumn dataField="tags">Tags</TableHeaderColumn>
-      <TableHeaderColumn dataField="created_at" dataSort>Created At</TableHeaderColumn>
-      <TableHeaderColumn dataField="updated_at" dataSort>Updated At</TableHeaderColumn>
+      <TableHeaderColumn dataField="created_at" dataSort editable={false} hiddenOnInsert={true}>Created At</TableHeaderColumn>
+      <TableHeaderColumn dataField="updated_at" dataSort editable={false} hiddenOnInsert={true}>Updated At</TableHeaderColumn>
     </BootstrapTable>
   </div>
 );
