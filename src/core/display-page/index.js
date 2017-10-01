@@ -23,17 +23,26 @@ class DisplayPage extends Component {
     this.props.removeBook(row);
   }
 
-  onAfterSaveCell = (row, cellName, cellValue) => {
-    console.log('cell name', cellName)
-    console.log('cell value', cellValue)
+  onAfterSaveCell = (row) => {
+    let updatedBook = {};
+
+    for (const prop in row) {
+      updatedBook[prop] = row[prop]
+    }
+
+    this.props.updateBook(updatedBook, updatedBook['_id']);
   }
 
   options = {
     afterInsertRow: this.onAfterInsertRow,
     afterDeleteRow: this.onAfterDeleteRow,
-    afterSaveCell: this.onAfterSaveCell
   };
 
+  cellEditProp = {
+    mode: 'click',
+    blurToSave: true,
+    afterSaveCell: this.onAfterSaveCell
+  };
 
   render() {
     const {isRequesting, bookList} = this.props;
@@ -42,6 +51,7 @@ class DisplayPage extends Component {
           <Spinner />
         ) : (
           <FendukTable
+            cellEditProp={this.cellEditProp}
             data={bookList}
             options={this.options}
           />

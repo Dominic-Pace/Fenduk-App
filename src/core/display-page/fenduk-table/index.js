@@ -9,12 +9,9 @@ const selectRowProp = {
   mode: 'checkbox'
 };
 
-const cellEditProp = {
-  mode: 'click',
-  blurToSave: true
-};
 
-const FendukTable = ({ data, options }) => (
+
+const FendukTable = ({ cellEditProp, data, options }) => (
   <div>
     <BootstrapTable className="fenduk-table"
                     data={data}

@@ -53,17 +53,17 @@ export const createNewBook = (newBook) => {
   }
 }
 
-export const updateBook = (bookWithUpdate, id) => {
+export const updateBook = (updatedBook, id) => {
   const bookConfig = {
     url: 'http://localhost:3000/imports/' + id,
     method: 'post',
     newBook: {
-      title: bookWithUpdate.title,
-      description: bookWithUpdate.description,
-      author: bookWithUpdate.author,
-      tags: bookWithUpdate.tags,
-      created_at: moment(bookWithUpdate.created_at).unix(),
-      updated_at: moment(bookWithUpdate.updated_at).unix()
+      title: updatedBook.title,
+      description: updatedBook.description,
+      author: updatedBook.author,
+      tags: updatedBook.tags,
+      created_at: moment(updatedBook.created_at).unix(),
+      updated_at: moment(updatedBook.updated_at).unix()
     }
   }
   return dispatch => {
